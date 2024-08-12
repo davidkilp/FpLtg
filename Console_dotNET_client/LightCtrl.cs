@@ -19,7 +19,7 @@ namespace Console_dotNET_client
 
         #region dllImports
         // FpLighting c++ DLL here - needs a project reference to this dll in C# project also
-        private const string _dllImportPath = @"..\..\..\..\x64\Debug\FpLtg.dll";
+        private const string _dllImportPath = @"FpLtg.dll";
 
         // External C++ Functions 
         [DllImport(_dllImportPath, CallingConvention = CallingConvention.Cdecl)]

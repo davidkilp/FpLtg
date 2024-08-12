@@ -5,6 +5,15 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /y /f /d &quot;$(SolutionDir)\x64\$(Configuration)\*.dll&quot; &quot;$(ProjectDir)$(OutDir)&quot;" />
+  </Target>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="echo OutDir: $(OutDir)&#xD;&#xA;echo ProjectDir: $(ProjectDir)&#xD;&#xA;echo SolutionDir: $(SolutionDir)&#xD;&#xA;echo OutputPath: $(OutputPath)&#xD;&#xA;echo Configuration: $(Configuration)&#xD;&#xA;echo Platform: $(Platform)&#xD;&#xA;echo ProcessorArchitecture: $(ProcessorArchitecture)&#xD;&#xA;" />
+  </Target>
 
 </Project>

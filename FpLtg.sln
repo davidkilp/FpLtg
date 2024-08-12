@@ -6,8 +6,14 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FpLtg", "FpLtg\FpLtg.vcxproj", "{D7A8926F-8E27-41CA-8FB6-4B5F7DAC878E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppLightingClient", "CppLightingClient\CppLightingClient.vcxproj", "{5BD51BBD-129A-41B7-86AA-020E90795710}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D7A8926F-8E27-41CA-8FB6-4B5F7DAC878E} = {D7A8926F-8E27-41CA-8FB6-4B5F7DAC878E}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console_dotNET_client", "Console_dotNET_client\Console_dotNET_client.csproj", "{A5735EAC-A068-4621-958F-FDC4DAEC737C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console_dotNET_client", "Console_dotNET_client\Console_dotNET_client.csproj", "{A5735EAC-A068-4621-958F-FDC4DAEC737C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D7A8926F-8E27-41CA-8FB6-4B5F7DAC878E} = {D7A8926F-8E27-41CA-8FB6-4B5F7DAC878E}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
