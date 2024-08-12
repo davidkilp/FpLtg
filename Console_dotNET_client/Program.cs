@@ -12,7 +12,7 @@ namespace Console_dotNET_client
 
             // must be called to initialize hardware
             IntPtr frontStrip = LightCtrl.FpLtg_Instantiate(LightCtrl.RGB_Strip.FRONT);
-            IntPtr backStrip = LightCtrl.FpLtg_Instantiate(LightCtrl.RGB_Strip.FRONT);
+            IntPtr backStrip = LightCtrl.FpLtg_Instantiate(LightCtrl.RGB_Strip.BACK);
 
             // set colors of both strips
             LightCtrl.FpLtg_setRGB(frontStrip, 0x21, 0xFF, 0xAA);
