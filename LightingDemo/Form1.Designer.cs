@@ -241,7 +241,7 @@
             Controls.Add(frontColorBtn);
             Controls.Add(frontGroupBox);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Lighting Demo";
             ((System.ComponentModel.ISupportInitialize)frontBrightness).EndInit();
             ((System.ComponentModel.ISupportInitialize)frontBlinkRate).EndInit();
             ((System.ComponentModel.ISupportInitialize)backBlinkRate).EndInit();

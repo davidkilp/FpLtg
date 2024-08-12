@@ -6,10 +6,15 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>LightingCircle.ico</ApplicationIcon>
   </PropertyGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="xcopy /y /f /d &quot;$(SolutionDir)\x64\$(Configuration)\*.dll&quot; &quot;$(ProjectDir)$(OutDir)&quot;" />
   </Target>
+
+  <ItemGroup>
+    <Content Include="LightingCircle.ico" />
+  </ItemGroup>
 
 </Project>
