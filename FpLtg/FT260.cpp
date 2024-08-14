@@ -141,6 +141,12 @@ const char* FT260::FT260StatusToString(FT260_STATUS status)
         return sFT260Status[16].c_str();
     case 17:
         return sFT260Status[17].c_str();
+    case 18:
+        return sFT260Status[18].c_str();
+    case 19:
+        return sFT260Status[19].c_str();
+    case 20:
+        return sFT260Status[20].c_str();
     default:
         return "Not a valid FT260 status";
     }
