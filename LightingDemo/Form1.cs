@@ -77,6 +77,21 @@ namespace LightingDemo
 
             return false;
         }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Enter)
+            {
+                var ctl = this.ActiveControl;
+                var box = ctl as TextBoxBase;
+                // Make Enter behave like Tab, unless it is a multiline textbox
+                if (ctl != null && (box == null || !box.Multiline))
+                {
+                    this.SelectNextControl(ctl, true, true, true, true);
+                    return true;
+                }
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
 
         private void frontBrightness_ValueChanged(object sender, EventArgs e)
         {
