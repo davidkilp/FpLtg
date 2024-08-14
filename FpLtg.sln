@@ -20,6 +20,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightingDemo", "LightingDem
 		{D7A8926F-8E27-41CA-8FB6-4B5F7DAC878E} = {D7A8926F-8E27-41CA-8FB6-4B5F7DAC878E}
 	EndProjectSection
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DemoSetup", "DemoSetup\DemoSetup.vdproj", "{89FC8F4D-18F9-4AB0-AEC1-B2BAE03DECA5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +80,12 @@ Global
 		{0BCFC83C-B361-46A6-AC83-F3ADE6029FFA}.Release|x64.Build.0 = Release|Any CPU
 		{0BCFC83C-B361-46A6-AC83-F3ADE6029FFA}.Release|x86.ActiveCfg = Release|Any CPU
 		{0BCFC83C-B361-46A6-AC83-F3ADE6029FFA}.Release|x86.Build.0 = Release|Any CPU
+		{89FC8F4D-18F9-4AB0-AEC1-B2BAE03DECA5}.Debug|Any CPU.ActiveCfg = Debug
+		{89FC8F4D-18F9-4AB0-AEC1-B2BAE03DECA5}.Debug|x64.ActiveCfg = Debug
+		{89FC8F4D-18F9-4AB0-AEC1-B2BAE03DECA5}.Debug|x86.ActiveCfg = Debug
+		{89FC8F4D-18F9-4AB0-AEC1-B2BAE03DECA5}.Release|Any CPU.ActiveCfg = Release
+		{89FC8F4D-18F9-4AB0-AEC1-B2BAE03DECA5}.Release|x64.ActiveCfg = Release
+		{89FC8F4D-18F9-4AB0-AEC1-B2BAE03DECA5}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
