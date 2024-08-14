@@ -15,7 +15,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console_dotNET_client", "Co
 		{D7A8926F-8E27-41CA-8FB6-4B5F7DAC878E} = {D7A8926F-8E27-41CA-8FB6-4B5F7DAC878E}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightingDemo", "LightingDemo\LightingDemo.csproj", "{0BCFC83C-B361-46A6-AC83-F3ADE6029FFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LightingDemo", "LightingDemo\LightingDemo.csproj", "{0BCFC83C-B361-46A6-AC83-F3ADE6029FFA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D7A8926F-8E27-41CA-8FB6-4B5F7DAC878E} = {D7A8926F-8E27-41CA-8FB6-4B5F7DAC878E}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

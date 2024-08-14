@@ -11,10 +11,14 @@ namespace LightingDemo
         public Form1()
         {
             InitializeComponent();
-            initializeHdwControls();
+            if (initializeHdwControls())
+            {
+                // Kill the application.
+                System.Environment.Exit(1);
+            }
         }
 
-        private void initializeHdwControls()
+        private bool initializeHdwControls()
         {
             try
             {
@@ -66,19 +70,25 @@ namespace LightingDemo
             }
             catch (Exception ex)
             {
+                MessageBox.Show("LED Strip hardware failure.\nRestart application or system\n" + ex.Message);
                 textStatus.Text = "LED Strip hardware failure. Check connection or restart system";
+                return true;
             }
+
+            return false;
         }
 
         private void frontBrightness_ValueChanged(object sender, EventArgs e)
         {
             byte brightness = (byte)frontBrightness.Value;
             LightCtrl.FpLtg_setBrightness(frontStrip, brightness);
+            textStatus.Text = "Front brightness: " + brightness;
         }
         private void backBrightness_ValueChanged(object sender, EventArgs e)
         {
             byte brightness = (byte)backBrightness.Value;
             LightCtrl.FpLtg_setBrightness(backStrip, brightness);
+            textStatus.Text = "Back brightness: " + brightness;
         }
 
         private void frontColorBtn_Click(object sender, EventArgs e)
@@ -135,6 +145,7 @@ namespace LightingDemo
             bool blink = frontBlinkCheck.Checked;
             LightCtrl.FpLtg_setBlink(frontStrip, blink);
             frontBlinkRate.Enabled = blink;     // turn on/off blink rate value
+            textStatus.Text = "Front blink: " + blink;
         }
 
         private void backBlinkCheck_CheckedChanged(object sender, EventArgs e)
@@ -143,18 +154,21 @@ namespace LightingDemo
             bool blink = backBlinkCheck.Checked;
             LightCtrl.FpLtg_setBlink(backStrip, blink);
             backBlinkRate.Enabled = blink;     // turn on/off blink rate value
+            textStatus.Text = "Back blink: " + blink;
         }
 
         private void frontBlinkRate_ValueChanged(object sender, EventArgs e)
         {
             byte rate = (byte)frontBlinkRate.Value;
             LightCtrl.FpLtg_setBlinkRate(frontStrip, rate);
+            textStatus.Text = "Front LED blink rate: " + rate;
         }
 
         private void backBlinkRate_ValueChanged(object sender, EventArgs e)
         {
             byte rate = (byte)backBlinkRate.Value;
             LightCtrl.FpLtg_setBlinkRate(backStrip, rate);
+            textStatus.Text = "Back LED blink rate: " + rate;
         }
     }
 }
