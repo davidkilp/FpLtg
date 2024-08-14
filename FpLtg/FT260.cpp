@@ -4,7 +4,7 @@
 
 #include "FT260.h"
 
-#define DEBUG	1
+//#define DEBUG	1
 #ifdef DEBUG
 #define D(x)   x
 #else
