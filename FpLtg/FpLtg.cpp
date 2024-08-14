@@ -36,6 +36,7 @@ void FpLtg::setRGB(uint8_t red, uint8_t green, uint8_t blue)
 void FpLtg::getRGB(uint8_t& red, uint8_t& green, uint8_t& blue)
 {
 	PCA9632_PWMx_t colors;
+	/* NOTE the colors requested needs to match the way the PCA9632 output are connected */
 	_pca9632->ReadPwmxRegs(&colors);
 	green = colors.chan0;
 	red = colors.chan1;
