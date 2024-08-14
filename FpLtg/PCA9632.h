@@ -15,6 +15,7 @@ private:
 	FT260_HANDLE _mhandle;
     FT260* _ft260;
 	uint8_t _i2c_address;
+    FT260_STATUS checkFT260Status(std::string msg, FT260_STATUS ftstatus);
 
 public:
 	PCA9632(uint8_t i2c_address);

@@ -36,13 +36,26 @@ PCA9632::PCA9632(uint8_t i2c_address)
 
 }
 
-int PCA9632::WriteReg(uint8_t reg, uint8_t value)
+ 
+FT260_STATUS PCA9632::checkFT260Status(std::string msg, FT260_STATUS ftstatus)
+{
+	 if (ftstatus != FT260_OK)
+	 {
+		 std::string error(_ft260->FT260StatusToString(ftstatus));
+		 throw std::runtime_error(msg + ": " + error);
+	 }
+
+	 return ftstatus;
+}
+
+ int PCA9632::WriteReg(uint8_t reg, uint8_t value)
 {
 	FT260_STATUS ftstatus;
 	//std::cout << std::format("Writing 0x{:02X} to register 0x{:02X} at I2C Address: 0x{:02X} using handle: {:p}\n", value, reg, _i2c_address, _mhandle);
 	ftstatus = _ft260->writeSingleByte(_i2c_address, reg, value);
+	checkFT260Status("I2C Write register fails", ftstatus);
 
-	return 0;
+	return ftstatus;
 }
 
 int PCA9632::ReadReg(uint8_t reg, uint8_t & value)
@@ -50,8 +63,9 @@ int PCA9632::ReadReg(uint8_t reg, uint8_t & value)
 	FT260_STATUS ftstatus;
 	//std::cout << std::format("Reading register 0x{:02X} at I2C Address: 0x{:02X}\n", reg, _i2c_address);
 	ftstatus = _ft260->readSingleByte(_i2c_address, reg, value);
+	checkFT260Status("I2C Read register fails", ftstatus);
 
-	return 0;
+	return ftstatus;
 }
 
 /**
@@ -71,8 +85,9 @@ int PCA9632::WritePwmxRegs(PCA9632_PWMx_t *pwmx)
 	writebuf[3] = pwmx->chan2;
 	writebuf[4] = pwmx->chan3;
 	ftstatus = _ft260->writeMultipleBytes(_i2c_address, writebuf, 5);
+	checkFT260Status("I2C Write multi-register fails", ftstatus);
 
-	return 0;
+	return ftstatus;
 }
 
 int PCA9632::ReadPwmxRegs(PCA9632_PWMx_t *pwmx)
@@ -86,8 +101,7 @@ int PCA9632::ReadPwmxRegs(PCA9632_PWMx_t *pwmx)
 	// first we need to write the CtrlRegister we are going to read (handled by call)
 	ftstatus = _ft260->readMultipleBytes(_i2c_address, CtrlRegister, ioBuffer, 4);
 	if (ftstatus != FT260_OK) {
-		std::string error(_ft260->FT260StatusToString(ftstatus));
-		std::cerr << "readMultipleBytes fails: " << error << std::endl;
+		checkFT260Status("I2C Read multi-register fails", ftstatus);
 	}
 	else
 	{
@@ -97,6 +111,6 @@ int PCA9632::ReadPwmxRegs(PCA9632_PWMx_t *pwmx)
 		pwmx->chan3 = ioBuffer[3];
 	}
 
-	return 0;
+	return ftstatus;
 }
 
