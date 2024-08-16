@@ -25,6 +25,6 @@ Find the .NET GUI application, LightingDemo.exe, and launch it.
 ![screenshot](https://github.com/davidkilp/FpLtg/blob/master/HID-LightingDemo_sceenshot.jpg)
 
 When Blinking is Enabled, the Brightness control will control the Duty Cycle (On/Off time per period) of the blinking at
-the selected blink rate. The blinking rate can be changed in 256 linear steps from 00h (41 ms, frequency 24 Hz)
-to FFh (10.73 seconds).
+the selected blink rate. The blinking rate can be changed in 256 linear steps from 0 (41 ms, frequency 24 Hz)
+to 255 (10.73 seconds).
 
